@@ -40,12 +40,9 @@ export default function AdminLaporanPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-          <span>📊</span> Laporan & Ekspor Data
+        <h1 className="text-2xl font-bold tracking-tight text-foreground">
+          Laporan & Ekspor Data
         </h1>
-        <p className="text-sm text-muted-foreground mt-0.5">
-          Unduh dokumen evaluasi dan rekapitulasi data akademik Al-Azhar Cairo
-        </p>
       </div>
 
       <div className="grid sm:grid-cols-2 gap-4">

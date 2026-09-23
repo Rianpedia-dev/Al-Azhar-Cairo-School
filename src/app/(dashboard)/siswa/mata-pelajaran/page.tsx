@@ -19,12 +19,9 @@ export default function SiswaMataPelajaranPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-          <span>📖</span> Mata Pelajaran & Jadwal Belajar
+        <h1 className="text-2xl font-bold tracking-tight text-foreground">
+          Mata Pelajaran & Jadwal Belajar
         </h1>
-        <p className="text-sm text-muted-foreground mt-0.5">
-          Daftar mata pelajaran aktif dan jadwal mingguan kelas Anda
-        </p>
       </div>
 
       {/* Schedule Table / Card */}

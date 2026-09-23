@@ -1,0 +1,372 @@
+// prisma/schema.prisma per PRD 5.2
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// ENUMS
+// ============================================
+
+enum UserRole {
+  ADMIN
+  GURU
+  SISWA
+}
+
+enum JenjangType {
+  SD
+  SMP
+}
+
+enum TugasStatus {
+  DRAFT
+  PUBLISHED
+  CLOSED
+}
+
+enum JenisTugas {
+  ESSAY
+  PILIHAN_GANDA
+  UPLOAD_FILE
+  PROYEK
+}
+
+enum StatusKoreksi {
+  BELUM_DIKUMPULKAN
+  DIKUMPULKAN
+  SEDANG_DIKOREKSI
+  SUDAH_DINILAI
+  REVISI
+}
+
+enum KategoriPrestasi {
+  AKADEMIK
+  NON_AKADEMIK
+  OLAHRAGA
+  SENI
+  KEAGAMAAN
+  LAINNYA
+}
+
+enum TingkatPrestasi {
+  SEKOLAH
+  KECAMATAN
+  KOTA
+  PROVINSI
+  NASIONAL
+  INTERNASIONAL
+}
+
+enum ChatRoomType {
+  PRIVATE
+  GROUP
+}
+
+enum MessageType {
+  TEXT
+  IMAGE
+  FILE
+  SYSTEM
+}
+
+// ============================================
+// MODELS
+// ============================================
+
+model User {
+  id          String    @id @default(cuid())
+  name        String
+  email       String    @unique
+  password    String
+  role        UserRole
+  avatar      String?
+  nomorInduk  String?   @unique  // NIS untuk siswa, NIP untuk guru
+  phone       String?
+  alamat      String?   @db.Text
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // Relations
+  jenjangId   String?
+  jenjang     Jenjang?  @relation(fields: [jenjangId], references: [id])
+  kelasId     String?
+  kelas       Kelas?    @relation("SiswaKelas", fields: [kelasId], references: [id])
+
+  // Guru Relations
+  kelasWali       Kelas[]              @relation("WaliKelas")
+  mataPelajaran   MataPelajaranKelas[] @relation("GuruMapel")
+  tugasDibuat     Tugas[]              @relation("GuruTugas")
+
+  // Siswa Relations
+  pengumpulanTugas PengumpulanTugas[]  @relation("SiswaPengumpulan")
+  prestasi         Prestasi[]          @relation("SiswaPrestasi")
+
+  // Prestasi Input
+  prestasiInput   Prestasi[]           @relation("InputPrestasi")
+
+  // Chat Relations
+  chatRooms       ChatRoomMember[]
+  messages        Message[]            @relation("SenderMessage")
+
+  // Better Auth Relations
+  sessions        Session[]
+  accounts        Account[]
+
+  @@index([role])
+  @@index([jenjangId])
+  @@index([kelasId])
+  @@map("users")
+}
+
+model Session {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token       String   @unique
+  expiresAt   DateTime
+  ipAddress   String?
+  userAgent   String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("sessions")
+}
+
+model Account {
+  id                String   @id @default(cuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accountId         String
+  providerId        String
+  accessToken       String?  @db.Text
+  refreshToken      String?  @db.Text
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope             String?
+  idToken           String?  @db.Text
+  password          String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("accounts")
+}
+
+model Verification {
+  id          String   @id @default(cuid())
+  identifier  String
+  value       String   @db.Text
+  expiresAt   DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("verifications")
+}
+
+model Jenjang {
+  id        String      @id @default(cuid())
+  nama      JenjangType @unique
+  deskripsi String?
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  // Relations
+  users          User[]
+  kelas          Kelas[]
+  mataPelajaran  MataPelajaran[]
+
+  @@map("jenjang")
+}
+
+model Kelas {
+  id          String   @id @default(cuid())
+  nama        String               // e.g., "1A", "7B"
+  tingkat     Int                   // 1-6 untuk SD, 7-9 untuk SMP
+  tahunAjaran String               // e.g., "2026/2027"
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  jenjangId   String
+  jenjang     Jenjang  @relation(fields: [jenjangId], references: [id])
+  waliKelasId String?
+  waliKelas   User?    @relation("WaliKelas", fields: [waliKelasId], references: [id])
+
+  siswa            User[]               @relation("SiswaKelas")
+  mataPelajaran    MataPelajaranKelas[]
+
+  @@unique([nama, tahunAjaran])
+  @@index([jenjangId])
+  @@map("kelas")
+}
+
+model MataPelajaran {
+  id        String   @id @default(cuid())
+  nama      String               // e.g., "Matematika", "Bahasa Indonesia"
+  kode      String   @unique     // e.g., "MTK", "BIN"
+  deskripsi String?  @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  jenjangId String
+  jenjang   Jenjang  @relation(fields: [jenjangId], references: [id])
+
+  kelasMapel MataPelajaranKelas[]
+
+  @@index([jenjangId])
+  @@map("mata_pelajaran")
+}
+
+model MataPelajaranKelas {
+  id        String   @id @default(cuid())
+  jadwal    Json?                // [{ hari: "Senin", jamMulai: "08:00", jamSelesai: "09:30" }]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  mataPelajaranId String
+  mataPelajaran   MataPelajaran @relation(fields: [mataPelajaranId], references: [id])
+  kelasId         String
+  kelas           Kelas         @relation(fields: [kelasId], references: [id])
+  guruId          String
+  guru            User          @relation("GuruMapel", fields: [guruId], references: [id])
+
+  tugas Tugas[]
+
+  @@unique([mataPelajaranId, kelasId, guruId])
+  @@index([kelasId])
+  @@index([guruId])
+  @@map("mata_pelajaran_kelas")
+}
+
+model Tugas {
+  id        String      @id @default(cuid())
+  judul     String
+  deskripsi String?     @db.Text
+  jenisTugas JenisTugas
+  deadline  DateTime
+  lampiran  Json?                // [{ nama: "soal.pdf", url: "/uploads/...", type: "pdf" }]
+  status    TugasStatus @default(DRAFT)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  // Relations
+  guruId              String
+  guru                User               @relation("GuruTugas", fields: [guruId], references: [id])
+  mataPelajaranKelasId String
+  mataPelajaranKelas  MataPelajaranKelas @relation(fields: [mataPelajaranKelasId], references: [id])
+
+  pengumpulan PengumpulanTugas[]
+
+  @@index([guruId])
+  @@index([mataPelajaranKelasId])
+  @@index([deadline])
+  @@index([status])
+  @@map("tugas")
+}
+
+model PengumpulanTugas {
+  id             String        @id @default(cuid())
+  files          Json                    // [{ nama: "tugas.pdf", url: "/uploads/...", type: "pdf", size: 1024 }]
+  catatan        String?       @db.Text
+  nilai          Float?
+  komentar       String?       @db.Text  // Komentar koreksi dari guru
+  koreksiFile    Json?                   // File hasil koreksi guru (annotated PDF/image)
+  statusKoreksi  StatusKoreksi @default(BELUM_DIKUMPULKAN)
+  tanggalKumpul  DateTime?
+  tanggalKoreksi DateTime?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  // Relations
+  tugasId  String
+  tugas    Tugas  @relation(fields: [tugasId], references: [id], onDelete: Cascade)
+  siswaId  String
+  siswa    User   @relation("SiswaPengumpulan", fields: [siswaId], references: [id])
+
+  @@unique([tugasId, siswaId])
+  @@index([statusKoreksi])
+  @@map("pengumpulan_tugas")
+}
+
+model Prestasi {
+  id          String            @id @default(cuid())
+  judul       String
+  deskripsi   String?           @db.Text
+  kategori    KategoriPrestasi
+  tingkat     TingkatPrestasi
+  peringkat   String?                      // e.g., "Juara 1", "Medali Emas"
+  tanggal     DateTime
+  bukti       Json?                        // [{ nama: "sertifikat.pdf", url: "/uploads/..." }]
+  isVerified  Boolean           @default(false)
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  // Relations
+  siswaId       String
+  siswa         User   @relation("SiswaPrestasi", fields: [siswaId], references: [id])
+  diinputOlehId String
+  diinputOleh   User   @relation("InputPrestasi", fields: [diinputOlehId], references: [id])
+
+  @@index([siswaId])
+  @@index([kategori])
+  @@index([tingkat])
+  @@map("prestasi")
+}
+
+model ChatRoom {
+  id        String       @id @default(cuid())
+  type      ChatRoomType @default(PRIVATE)
+  nama      String?                         // Nama group (untuk group chat)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  // Relations
+  members  ChatRoomMember[]
+  messages Message[]
+
+  @@map("chat_rooms")
+}
+
+model ChatRoomMember {
+  id       String   @id @default(cuid())
+  joinedAt DateTime @default(now())
+
+  // Relations
+  chatRoomId String
+  chatRoom   ChatRoom @relation(fields: [chatRoomId], references: [id], onDelete: Cascade)
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+
+  @@unique([chatRoomId, userId])
+  @@map("chat_room_members")
+}
+
+model Message {
+  id          String      @id @default(cuid())
+  content     String      @db.Text
+  type        MessageType @default(TEXT)
+  attachments Json?                      // [{ nama: "foto.jpg", url: "/uploads/...", type: "image" }]
+  isRead      Boolean     @default(false)
+  readAt      DateTime?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  // Relations
+  chatRoomId String
+  chatRoom   ChatRoom @relation(fields: [chatRoomId], references: [id], onDelete: Cascade)
+  senderId   String
+  sender     User     @relation("SenderMessage", fields: [senderId], references: [id])
+
+  @@index([chatRoomId])
+  @@index([senderId])
+  @@index([createdAt])
+  @@map("messages")
+}

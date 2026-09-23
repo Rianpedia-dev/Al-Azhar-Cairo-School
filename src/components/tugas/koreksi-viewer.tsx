@@ -362,12 +362,12 @@ export function KoreksiViewer({
   };
 
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-[1fr_400px] gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] xl:grid-cols-[1fr_400px] gap-6">
       {/* File & Annotation Canvas Workspace */}
       <div className="space-y-3">
         {/* Annotation Toolbar (PRD 7.6.5) */}
         <Card className="border-border/70 shadow-sm">
-          <CardContent className="p-3 flex flex-wrap items-center justify-between gap-2">
+          <CardContent className="p-2 sm:p-3 flex flex-wrap items-center justify-between gap-2">
             {/* Drawing Tools */}
             <div className="flex items-center gap-1.5">
               <Button
@@ -497,7 +497,7 @@ export function KoreksiViewer({
               Siswa: {studentName}
             </Badge>
           </CardHeader>
-          <CardContent className="p-0 bg-slate-100 dark:bg-black/80 overflow-auto max-h-[720px] flex justify-center p-4">
+          <CardContent className="p-0 bg-slate-100 dark:bg-black/80 overflow-auto max-h-[720px] flex justify-center p-2 sm:p-4">
             <div
               style={{ transform: `scale(${zoom})`, transformOrigin: "top center", transition: "transform 0.15s ease-out" }}
               className="shadow-2xl rounded-lg bg-white overflow-hidden cursor-crosshair select-none"
@@ -518,7 +518,7 @@ export function KoreksiViewer({
       </div>
 
       {/* Grading & Feedback Panel (PRD 7.6.5.3) */}
-      <Card className="h-fit sticky top-20 border-border/80 shadow-md">
+      <Card className="h-fit lg:sticky lg:top-20 border-border/80 shadow-md">
         <CardHeader className="pb-3 border-b bg-muted/20">
           <CardTitle className="text-base font-bold flex items-center justify-between">
             <span>📊 Panel Penilaian Guru</span>

@@ -25,12 +25,9 @@ export default function BuatTugasPage() {
       </div>
 
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-          <span>✍️</span> Buat Penugasan Baru
+        <h1 className="text-2xl font-bold tracking-tight text-foreground">
+          Buat Penugasan Baru
         </h1>
-        <p className="text-sm text-muted-foreground mt-0.5">
-          Tentukan instruksi belajar, kriteria penilaian, dan tenggat waktu untuk siswa
-        </p>
       </div>
 
       <TugasForm onSubmit={handleSuccess} />

@@ -71,12 +71,9 @@ export default function AdminKelasPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-            <span>🏫</span> Manajemen Rombel & Kelas
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">
+            Manajemen Rombel & Kelas
           </h1>
-          <p className="text-sm text-muted-foreground mt-0.5">
-            Daftar rombongan belajar jenjang SD dan SMP Al-Azhar Cairo
-          </p>
         </div>
 
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

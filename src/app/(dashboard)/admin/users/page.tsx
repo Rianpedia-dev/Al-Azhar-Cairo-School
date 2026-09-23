@@ -148,12 +148,9 @@ export default function AdminUsersPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-            <span>👥</span> Manajemen Pengguna
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">
+            Manajemen Pengguna
           </h1>
-          <p className="text-sm text-muted-foreground mt-0.5">
-            Kelola data akun administrator, pendidik, dan peserta didik Al-Azhar Cairo
-          </p>
         </div>
         <div className="flex items-center gap-2">
           {/* PRD 6.1: Import CSV Dialog */}

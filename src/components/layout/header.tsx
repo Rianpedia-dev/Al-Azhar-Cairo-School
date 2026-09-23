@@ -5,6 +5,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
 import { getUserInitials, getAvatarColor, mockUsers } from "@/lib/mock-data";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -108,8 +109,12 @@ export function AppHeader() {
   return (
     <>
       <header className="sticky top-0 z-40 flex h-16 items-center gap-4 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4 md:px-6">
-        {/* Mobile sidebar trigger */}
-        <SidebarTrigger className="md:hidden" />
+        {/* Sidebar trigger (desktop & mobile) */}
+        <SidebarTrigger
+          className="-ml-1 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+          title="Buka/Tutup Sidebar (Ctrl+B)"
+        />
+        <Separator orientation="vertical" className="h-4 hidden sm:block" />
 
         {/* Logo for mobile */}
         <div className="flex items-center gap-2 md:hidden">
@@ -118,11 +123,11 @@ export function AppHeader() {
           </div>
         </div>
         {/* App Title & Tahun Ajaran */}
-        <div className="flex flex-col justify-center">
-          <span className="font-semibold text-xs sm:text-sm text-foreground/90 leading-tight">
+        <div className="flex flex-col justify-center min-w-0">
+          <span className="font-semibold text-xs sm:text-sm text-foreground/90 leading-tight truncate">
             Al-Azhar Cairo App
           </span>
-          <span className="text-[10px] sm:text-xs text-muted-foreground font-medium">
+          <span className="text-[10px] sm:text-xs text-muted-foreground font-medium truncate hidden sm:inline">
             Tahun Ajaran {tahunAjaran}
           </span>
         </div>

@@ -8,16 +8,17 @@ import { MessageBubble } from "./message-bubble";
 import { getUserInitials, getAvatarColor } from "@/lib/mock-data";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import type { Message, ChatRoom } from "@/types";
-import { Send, Paperclip, Smile, Phone, MoreVertical, Users } from "lucide-react";
+import { Send, Paperclip, Smile, Phone, MoreVertical, Users, ChevronLeft } from "lucide-react";
 
 interface ChatWindowProps {
   room: ChatRoom | null;
   messages: Message[];
   currentUserId: string;
   onSendMessage?: (content: string) => void;
+  onBack?: () => void;
 }
 
-export function ChatWindow({ room, messages, currentUserId, onSendMessage }: ChatWindowProps) {
+export function ChatWindow({ room, messages, currentUserId, onSendMessage, onBack }: ChatWindowProps) {
   const [inputValue, setInputValue] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -53,8 +54,19 @@ export function ChatWindow({ room, messages, currentUserId, onSendMessage }: Cha
   return (
     <div className="flex-1 flex flex-col h-full">
       {/* Chat header */}
-      <div className="flex items-center gap-3 p-3 border-b border-border bg-background">
-        <Avatar className="h-9 w-9">
+      <div className="flex items-center gap-2 sm:gap-3 p-3 border-b border-border bg-background">
+        {onBack && (
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden h-8 w-8 -ml-1 text-muted-foreground"
+            onClick={onBack}
+          >
+            <ChevronLeft className="h-5 w-5" />
+            <span className="sr-only">Kembali ke Kontak</span>
+          </Button>
+        )}
+        <Avatar className="h-9 w-9 shrink-0">
           <AvatarFallback
             style={{ backgroundColor: getAvatarColor(roomName) }}
             className="text-white text-xs font-bold"

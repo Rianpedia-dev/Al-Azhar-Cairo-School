@@ -60,12 +60,9 @@ export default function GuruPrestasiPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-            <span>🏆</span> Pencatatan Prestasi Siswa
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">
+            Pencatatan Prestasi Siswa
           </h1>
-          <p className="text-sm text-muted-foreground mt-0.5">
-            Daftarkan capaian prestasi siswa bimbingan Anda untuk diverifikasi sekolah
-          </p>
         </div>
 
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

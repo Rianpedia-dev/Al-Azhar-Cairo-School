@@ -29,12 +29,9 @@ export default function GuruTugasPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-            <span>📝</span> Daftar Tugas Siswa
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">
+            Daftar Tugas Siswa
           </h1>
-          <p className="text-sm text-muted-foreground mt-0.5">
-            Kelola penugasan, instruksi soal, dan tenggat waktu pengumpulan
-          </p>
         </div>
         <Link
           href="/guru/tugas/buat"
@@ -46,7 +43,7 @@ export default function GuruTugasPage() {
         </Link>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
         <div className="relative w-full sm:w-72">
           <Search className="absolute left-2.5 top-2.5 size-4 text-muted-foreground" />
           <Input
@@ -56,7 +53,7 @@ export default function GuruTugasPage() {
             className="pl-9"
           />
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 overflow-x-auto pb-1 w-full sm:w-auto">
           {["ALL", "PUBLISHED", "DRAFT", "ARCHIVED"].map((s) => (
             <Button
               key={s}

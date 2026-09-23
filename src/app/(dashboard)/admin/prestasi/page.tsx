@@ -33,12 +33,9 @@ export default function AdminPrestasiPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-            <span>🏆</span> Verifikasi Prestasi Siswa
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">
+            Verifikasi Prestasi Siswa
           </h1>
-          <p className="text-sm text-muted-foreground mt-0.5">
-            Daftar pengajuan piagam dan kejuaraan siswa SD & SMP untuk diverifikasi admin
-          </p>
         </div>
       </div>
 

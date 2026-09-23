@@ -70,12 +70,9 @@ export default function AdminMataPelajaranPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-            <span>📚</span> Kurikulum & Mata Pelajaran
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">
+            Kurikulum & Mata Pelajaran
           </h1>
-          <p className="text-sm text-muted-foreground mt-0.5">
-            Daftar mata pelajaran resmi Al-Azhar Cairo (Dinas & Muatan Khusus Al-Azhar)
-          </p>
         </div>
 
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

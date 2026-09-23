@@ -127,13 +127,10 @@ export default function SiswaDashboardPage() {
     <div className="space-y-6">
       {/* Welcome Banner with Islamic Spirit (Al-Azhar Cairo) */}
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#27348B] via-[#008C45] to-[#00AEEF] p-6 text-white shadow-xl">
-        <div className="relative z-10 max-w-2xl space-y-2">
+        <div className="relative z-10 max-w-2xl">
           <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
-            Assalamu&apos;alaikum, Ahmad Fauzi! 👋
+            Assalamu&apos;alaikum, Ahmad Fauzi!
           </h1>
-          <p className="text-white/90 text-sm leading-relaxed">
-            Kelas 7A (Ibnu Khaldun) • Semester Ganjil 2026/2027. Kamu memiliki 2 tugas aktif minggu ini. Teruslah istiqomah dalam menuntut ilmu dan berakhlak karimah!
-          </p>
         </div>
       </div>
 
@@ -153,7 +150,7 @@ export default function SiswaDashboardPage() {
       </Card>
 
       {/* Stat Cards (PRD 7.2.3 & 9.1.6) */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="Tugas Aktif"
           value={upcomingTugas.length}

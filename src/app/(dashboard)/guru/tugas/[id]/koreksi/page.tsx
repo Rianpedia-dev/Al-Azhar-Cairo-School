@@ -28,12 +28,9 @@ export default function KoreksiTugasPage({ params }: PageProps) {
       </div>
 
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-          <span>🔍</span> Koreksi & Penilaian Berkas
+        <h1 className="text-2xl font-bold tracking-tight text-foreground">
+          Koreksi & Penilaian Berkas
         </h1>
-        <p className="text-sm text-muted-foreground mt-0.5">
-          Tugas: <span className="font-semibold text-foreground">{tugas.judul}</span>
-        </p>
       </div>
 
       <KoreksiViewer

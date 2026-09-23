@@ -18,11 +18,8 @@ export default function SiswaPrestasiPage() {
             <Trophy className="size-3 text-amber-200" /> Lemari Penghargaan & Piagam
           </Badge>
           <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
-            Portofolio Prestasi Saya 🌟
+            Portofolio Prestasi Saya
           </h1>
-          <p className="text-white/90 text-sm">
-            Kumpulan piagam, kejuaraan, dan capaian akademik serta keagamaan resmi Al-Azhar Cairo
-          </p>
         </div>
       </div>
 

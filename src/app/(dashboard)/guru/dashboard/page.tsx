@@ -76,12 +76,9 @@ export default function GuruDashboardPage() {
       {/* Title */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground flex items-center gap-2">
-            <span>📚</span> Dashboard Pendidik
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+            Dashboard Pendidik
           </h1>
-          <p className="text-sm text-muted-foreground mt-1">
-            Portal Guru Al-Azhar Cairo — Tahun Ajaran 2026/2027
-          </p>
         </div>
         <div className="flex items-center gap-2">
           <Link
@@ -96,7 +93,7 @@ export default function GuruDashboardPage() {
       </div>
 
       {/* Stat Cards (PRD 7.2.2) */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="Kelas Diampu"
           value={kelasDiampu.length}

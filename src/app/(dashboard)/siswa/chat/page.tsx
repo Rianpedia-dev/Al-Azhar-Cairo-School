@@ -5,11 +5,13 @@ import { ContactList } from "@/components/chat/contact-list";
 import { ChatWindow } from "@/components/chat/chat-window";
 import { mockChatRooms, mockMessages } from "@/lib/mock-data";
 import { ChatRoom, Message } from "@/types";
+import { cn } from "@/lib/utils";
 
 export default function SiswaChatPage() {
   const currentUserId = "usr4"; // ID Siswa Ahmad Fauzi
   const [selectedRoom, setSelectedRoom] = useState<ChatRoom>(mockChatRooms[0]);
   const [messages, setMessages] = useState<Message[]>(mockMessages);
+  const [showMobileChat, setShowMobileChat] = useState(false);
 
   const handleSendMessage = (content: string) => {
     const newMsg: Message = {
@@ -28,29 +30,30 @@ export default function SiswaChatPage() {
   return (
     <div className="space-y-4">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-          <span>💬</span> Chat & Diskusi Belajar
+        <h1 className="text-2xl font-bold tracking-tight text-foreground">
+          Chat & Diskusi Belajar
         </h1>
-        <p className="text-sm text-muted-foreground mt-0.5">
-          Konsultasi materi dengan guru mata pelajaran atau diskusi bersama teman sekelas
-        </p>
       </div>
 
-      <div className="grid md:grid-cols-12 gap-4 h-[650px] border border-border/70 rounded-xl overflow-hidden shadow-sm bg-card">
-        <div className="md:col-span-4 lg:col-span-4 border-r border-border/70 h-full">
+      <div className="grid md:grid-cols-12 gap-0 md:gap-4 h-[calc(100vh-14rem)] min-h-[520px] max-h-[720px] border border-border/70 rounded-xl overflow-hidden shadow-sm bg-card">
+        <div className={cn("h-full md:col-span-5 lg:col-span-4 border-r border-border/70", showMobileChat ? "hidden md:block" : "block")}>
           <ContactList
             chatRooms={mockChatRooms}
             selectedId={selectedRoom?.id}
-            onSelect={(room) => setSelectedRoom(room)}
+            onSelect={(room) => {
+              setSelectedRoom(room);
+              setShowMobileChat(true);
+            }}
             currentUserId={currentUserId}
           />
         </div>
-        <div className="md:col-span-8 lg:col-span-8 h-full">
+        <div className={cn("h-full md:col-span-7 lg:col-span-8", !showMobileChat ? "hidden md:block" : "block")}>
           <ChatWindow
             room={selectedRoom}
             messages={messages}
             currentUserId={currentUserId}
             onSendMessage={handleSendMessage}
+            onBack={() => setShowMobileChat(false)}
           />
         </div>
       </div>

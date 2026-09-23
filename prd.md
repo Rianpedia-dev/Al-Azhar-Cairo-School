@@ -1487,7 +1487,7 @@ Karena pengguna utama adalah siswa SD dan SMP (usia 6–15 tahun), desain harus:
 }
 
 .dark {
-  --background: #0f172a;
+  --background: #000000ff;
   --foreground: #f8fafc;
   --card: #1e293b;
   --card-foreground: #f8fafc;

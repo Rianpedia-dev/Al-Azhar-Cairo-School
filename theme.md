@@ -1,0 +1,129 @@
+:root {
+  --background: #f8f7f4;
+  --foreground: #1a1f2e;
+  --card: #ffffff;
+  --card-foreground: #1a1f2e;
+  --popover: #ffffff;
+  --popover-foreground: #1a1f2e;
+  --primary: #7c9082;
+  --primary-foreground: #ffffff;
+  --secondary: #ced4bf;
+  --secondary-foreground: #1a1f2e;
+  --muted: #e8e6e1;
+  --muted-foreground: #6b7280;
+  --accent: #bfc9bb;
+  --accent-foreground: #1a1f2e;
+  --destructive: #c73e3a;
+  --destructive-foreground: #ffffff;
+  --border: #e8e6e1;
+  --input: #ffffff;
+  --ring: #7c9082;
+  --chart-1: #7c9082;
+  --chart-2: #a0aa88;
+  --chart-3: #8b9d83;
+  --chart-4: #6b7280;
+  --chart-5: #e8e6e1;
+  --sidebar: #fafaf8;
+  --sidebar-foreground: #1a1f2e;
+  --sidebar-primary: #7c9082;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e8e6e1;
+  --sidebar-accent-foreground: #1a1f2e;
+  --sidebar-border: #e8e6e1;
+  --sidebar-ring: #7c9082;
+  --font-sans: Antic, ui-sans-serif, sans-serif, system-ui;
+  --font-serif: Signifier, Georgia, serif;
+  --font-mono: JetBrains Mono, Courier New, monospace;
+  --radius: 0.35rem;
+  --shadow-color: #1a1f2e;
+  --shadow-opacity: 0.04;
+  --shadow-blur: 2px;
+  --shadow-spread: 0px;
+  --shadow-offset-x: 0px;
+  --shadow-offset-y: 1px;
+  --letter-spacing: 0em;
+  --spacing: 0.23rem;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  --card: #121212;
+  --card-foreground: #f5f5f5;
+  --popover: #121212;
+  --popover-foreground: #f5f5f5;
+  --primary: #7c9082;
+  --primary-foreground: #000000;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #f5f5f5;
+  --muted: #1a1a1a;
+  --muted-foreground: #a0a0a0;
+  --accent: #36443a;
+  --accent-foreground: #f5f5f5;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #2a2a2a;
+  --input: #121212;
+  --ring: #7c9082;
+  --chart-1: #00AEEF; /* Cyan */
+  --chart-2: #ff4b40; /* Lighter Red */
+  --chart-3: #FDB913; /* Yellow */
+  --chart-4: #00b85a; /* Lighter Green */
+  --chart-5: #F37021; /* Orange (menggantikan ungu agar lebih jelas) */
+  --sidebar: #0f0f0f;
+  --sidebar-foreground: #f5f5f5;
+  --sidebar-primary: #7c9082;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #f5f5f5;
+  --sidebar-border: #2a2a2a;
+  --sidebar-ring: #7c9082;
+  --shadow-color: #000000;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-font-sans: var(--font-sans);
+  --color-font-serif: var(--font-serif);
+  --color-font-mono: var(--font-mono);
+  --color-radius: var(--radius);
+  --color-shadow-color: var(--shadow-color);
+  --color-shadow-opacity: var(--shadow-opacity);
+  --color-shadow-blur: var(--shadow-blur);
+  --color-shadow-spread: var(--shadow-spread);
+  --color-shadow-offset-x: var(--shadow-offset-x);
+  --color-shadow-offset-y: var(--shadow-offset-y);
+  --color-letter-spacing: var(--letter-spacing);
+  --color-spacing: var(--spacing);
+}

@@ -91,12 +91,9 @@ export default function AdminDashboardPage() {
       {/* Page Title & Actions */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground flex items-center gap-2">
-            <span>🛡️</span> Dashboard Admin
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+            Dashboard Admin
           </h1>
-          <p className="text-sm text-muted-foreground mt-1">
-            Ringkasan data akademik dan operasional Al-Azhar Cairo SD & SMP
-          </p>
         </div>
         <div className="flex items-center gap-2">
           <Link
@@ -118,7 +115,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Stat Cards (PRD 7.2.1) */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="Total Siswa"
           value={totalSiswa}

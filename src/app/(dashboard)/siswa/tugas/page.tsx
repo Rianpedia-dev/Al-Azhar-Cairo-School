@@ -20,12 +20,9 @@ export default function SiswaTugasPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
-          <span>📚</span> Tugas & Evaluasi Belajar
+        <h1 className="text-2xl font-bold tracking-tight text-foreground">
+          Tugas & Evaluasi Belajar
         </h1>
-        <p className="text-sm text-muted-foreground mt-0.5">
-          Lihat daftar penugasan aktif dari guru, periksa tenggat waktu, dan kirim jawaban
-        </p>
       </div>
 
       <div className="flex flex-col sm:flex-row items-center justify-between gap-3">

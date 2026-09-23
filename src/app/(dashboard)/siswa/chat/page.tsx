@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useAuth } from "@/hooks/use-auth";
 import { ContactList } from "@/components/chat/contact-list";
 import { ChatWindow } from "@/components/chat/chat-window";
 import { mockChatRooms, mockMessages } from "@/lib/mock-data";
@@ -8,7 +9,8 @@ import { ChatRoom, Message } from "@/types";
 import { cn } from "@/lib/utils";
 
 export default function SiswaChatPage() {
-  const currentUserId = "usr4"; // ID Siswa Ahmad Fauzi
+  const { user } = useAuth();
+  const currentUserId = user?.id || "u5";
   const [selectedRoom, setSelectedRoom] = useState<ChatRoom>(mockChatRooms[0]);
   const [messages, setMessages] = useState<Message[]>(mockMessages);
   const [showMobileChat, setShowMobileChat] = useState(false);

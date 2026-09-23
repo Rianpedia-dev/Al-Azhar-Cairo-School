@@ -1,6 +1,7 @@
 "use client";
 
 import { use, useState } from "react";
+import { useAuth } from "@/hooks/use-auth";
 import { mockTugas, mockPengumpulan } from "@/lib/mock-data";
 import { UploadForm } from "@/components/tugas/upload-form";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -32,9 +33,11 @@ interface PageProps {
 }
 
 export default function DetailTugasSiswaPage({ params }: PageProps) {
+  const { user } = useAuth();
+  const currentSiswaId = user?.id || "u5";
   const resolvedParams = use(params);
   const tugas = mockTugas.find((t) => t.id === resolvedParams.id) || mockTugas[0];
-  const pengumpulan = mockPengumpulan.find((p) => p.tugasId === tugas.id && p.siswaId === "usr4");
+  const pengumpulan = mockPengumpulan.find((p) => p.tugasId === tugas.id && p.siswaId === currentSiswaId);
   const [submitted, setSubmitted] = useState(Boolean(pengumpulan));
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 

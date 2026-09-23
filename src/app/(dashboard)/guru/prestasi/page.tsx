@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useAuth } from "@/hooks/use-auth";
 import { mockPrestasi } from "@/lib/mock-data";
 import { PrestasiTable } from "@/components/prestasi/prestasi-table";
 import {
@@ -20,6 +21,7 @@ import { toast } from "sonner";
 import { Prestasi, KategoriPrestasi, TingkatPrestasi } from "@/types";
 
 export default function GuruPrestasiPage() {
+  const { user } = useAuth();
   const [prestasiList, setPrestasiList] = useState<Prestasi[]>(mockPrestasi);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
@@ -44,8 +46,8 @@ export default function GuruPrestasiPage() {
       peringkat,
       tanggal: new Date().toISOString(),
       isVerified: false,
-      siswaId: "usr4",
-      diinputOlehId: "usr2",
+      siswaId: "u5",
+      diinputOlehId: user?.id || "u2",
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };

@@ -71,6 +71,7 @@ const adminNavItems: NavItem[] = [
   { title: "Monitoring Tugas", href: "/guru/tugas", emoji: "📝" },
   { title: "Monitoring Chat", href: "/guru/chat", emoji: "💬" },
   { title: "Laporan & Rekap", href: "/admin/laporan", emoji: "📊" },
+  { title: "Pengaturan", href: "/admin/pengaturan", emoji: "⚙️" },
 ];
 
 const guruNavItems: NavItem[] = [
@@ -88,6 +89,7 @@ const guruNavItems: NavItem[] = [
   },
   { title: "Prestasi Siswa", href: "/guru/prestasi", emoji: "🏆" },
   { title: "Ruang Chat", href: "/guru/chat", emoji: "💬" },
+  { title: "Profil Saya", href: "/guru/profil", emoji: "👤" },
 ];
 
 const siswaNavItems: NavItem[] = [
@@ -96,6 +98,7 @@ const siswaNavItems: NavItem[] = [
   { title: "Tugas Saya", href: "/siswa/tugas", emoji: "📝" },
   { title: "Prestasi Saya", href: "/siswa/prestasi", emoji: "🏆" },
   { title: "Chat Belajar", href: "/siswa/chat", emoji: "💬" },
+  { title: "Profil Saya", href: "/siswa/profil", emoji: "👤" },
 ];
 
 function getNavItems(role: UserRole): NavItem[] {
@@ -336,7 +339,7 @@ export function AppSidebar({ role }: { role: UserRole }) {
                   <DropdownMenuItem
                     onClick={() => {
                       if (isMobile) setOpenMobile(false);
-                      const target = role === "ADMIN" ? "/admin/users" : role === "GURU" ? "/guru/kelas-saya" : "/siswa/dashboard";
+                      const target = role === "ADMIN" ? "/admin/profil" : role === "GURU" ? "/guru/profil" : "/siswa/profil";
                       router.push(target);
                     }}
                     className="cursor-pointer"

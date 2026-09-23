@@ -1,5 +1,6 @@
 "use client";
 
+import { useAuth } from "@/hooks/use-auth";
 import { mockPrestasi } from "@/lib/mock-data";
 import { PrestasiBadge } from "@/components/prestasi/prestasi-badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,7 +8,9 @@ import { Badge } from "@/components/ui/badge";
 import { Award, Trophy, Star, Sparkles, Calendar, CheckCircle2 } from "lucide-react";
 
 export default function SiswaPrestasiPage() {
-  const prestasiSaya = mockPrestasi.filter((p) => p.siswaId === "usr4" || p.siswaId === "usr5");
+  const { user } = useAuth();
+  const currentSiswaId = user?.id || "u5";
+  const prestasiSaya = mockPrestasi.filter((p) => p.siswaId === currentSiswaId);
 
   return (
     <div className="space-y-6">

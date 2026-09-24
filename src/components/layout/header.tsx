@@ -104,7 +104,7 @@ export function AppHeader() {
   };
 
   const initials = user ? getUserInitials(user.name) : "AA";
-  const avatarBg = user ? getAvatarColor(user.name) : "#27348B";
+  const avatarBg = user ? getAvatarColor(user.name) : "#7c9082";
 
   return (
     <>
@@ -118,7 +118,7 @@ export function AppHeader() {
 
         {/* Logo for mobile */}
         <div className="flex items-center gap-2 md:hidden">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#27348B] text-white font-bold text-xs">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-xs">
             AC
           </div>
         </div>
@@ -227,7 +227,7 @@ export function AppHeader() {
                 }}
                 className="cursor-pointer"
               >
-                <User className="mr-2 h-4 w-4 text-[#27348B] dark:text-[#00AEEF]" />
+                <User className="mr-2 h-4 w-4 text-primary" />
                 <span>Profil Saya</span>
               </DropdownMenuItem>
 
@@ -252,7 +252,7 @@ export function AppHeader() {
                 onClick={() => handleSwitchRole("ADMIN")}
                 className="cursor-pointer text-xs"
               >
-                <Shield className="mr-2 h-4 w-4 text-[#27348B]" />
+                <Shield className="mr-2 h-4 w-4 text-primary" />
                 <span>Masuk sebagai Admin</span>
               </DropdownMenuItem>
               <DropdownMenuItem
@@ -288,7 +288,7 @@ export function AppHeader() {
         <DialogContent className="max-w-md">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
-              <User className="size-5 text-[#27348B] dark:text-[#00AEEF]" />
+              <User className="size-5 text-primary" />
               Profil Pengguna Al-Azhar Cairo
             </DialogTitle>
             <DialogDescription>
@@ -369,7 +369,7 @@ export function AppHeader() {
                   <Button
                     type="submit"
                     size="sm"
-                    className="bg-[#27348B] hover:bg-[#1e276b] text-white"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
                   >
                     Simpan Perubahan
                   </Button>
@@ -475,7 +475,7 @@ export function AppHeader() {
                     size="sm"
                     variant={semester === sem ? "default" : "outline"}
                     className={
-                      semester === sem ? "bg-[#27348B] text-white text-xs" : "text-xs"
+                      semester === sem ? "bg-primary text-primary-foreground text-xs" : "text-xs"
                     }
                     onClick={() => setSemester(sem)}
                   >

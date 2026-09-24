@@ -40,7 +40,7 @@ export default function AdminPengaturanPage() {
         <Card className="border-border/80 shadow-sm">
           <CardHeader className="pb-3">
             <CardTitle className="text-base font-bold flex items-center gap-2">
-              <School className="size-4 text-[#27348B] dark:text-[#00AEEF]" />
+              <School className="size-4 text-primary" />
               <span>Kalender & Periode Akademik</span>
             </CardTitle>
             <CardDescription className="text-xs">
@@ -67,7 +67,7 @@ export default function AdminPengaturanPage() {
                     type="button"
                     size="sm"
                     variant={semester === "GANJIL" ? "default" : "outline"}
-                    className={semester === "GANJIL" ? "bg-[#27348B] text-white w-full text-xs" : "w-full text-xs"}
+                    className={semester === "GANJIL" ? "bg-primary text-primary-foreground w-full text-xs" : "w-full text-xs"}
                     onClick={() => setSemester("GANJIL")}
                   >
                     Ganjil (Semester 1)
@@ -76,7 +76,7 @@ export default function AdminPengaturanPage() {
                     type="button"
                     size="sm"
                     variant={semester === "GENAP" ? "default" : "outline"}
-                    className={semester === "GENAP" ? "bg-[#27348B] text-white w-full text-xs" : "w-full text-xs"}
+                    className={semester === "GENAP" ? "bg-primary text-primary-foreground w-full text-xs" : "w-full text-xs"}
                     onClick={() => setSemester("GENAP")}
                   >
                     Genap (Semester 2)

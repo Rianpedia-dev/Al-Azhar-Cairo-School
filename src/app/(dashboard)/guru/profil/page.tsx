@@ -71,7 +71,7 @@ export default function GuruProfilPage() {
 
             <div className="text-left text-xs space-y-2 border-t pt-4 text-muted-foreground">
               <div className="flex items-center gap-2">
-                <School className="size-3.5 text-[#27348B] dark:text-[#00AEEF]" />
+                <School className="size-3.5 text-primary" />
                 <span>Jenjang: SD & SMP Al-Azhar</span>
               </div>
               <div className="flex items-center gap-2">
@@ -156,7 +156,7 @@ export default function GuruProfilPage() {
                 </div>
 
                 <div className="flex justify-end pt-2">
-                  <Button type="submit" size="sm" className="bg-[#27348B] hover:bg-[#1e276b] text-white gap-1.5">
+                  <Button type="submit" size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-1.5">
                     <KeyRound className="size-3.5" /> Simpan Kata Sandi
                   </Button>
                 </div>

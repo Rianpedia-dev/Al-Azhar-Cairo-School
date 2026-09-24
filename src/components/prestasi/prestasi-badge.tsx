@@ -9,7 +9,7 @@ const kategoriConfig: Record<KategoriPrestasi, { label: string; emoji: string; c
   NON_AKADEMIK: { label: "Non-Akademik", emoji: "🌟", color: "bg-[#662D91]/10 text-[#662D91] border-[#662D91]/30" },
   OLAHRAGA: { label: "Olahraga", emoji: "⚽", color: "bg-[#008C45]/10 text-[#008C45] border-[#008C45]/30" },
   SENI: { label: "Seni", emoji: "🎨", color: "bg-[#FDB913]/10 text-[#FDB913] border-[#FDB913]/30" },
-  KEAGAMAAN: { label: "Keagamaan", emoji: "🕌", color: "bg-[#27348B]/10 text-[#27348B] border-[#27348B]/30" },
+  KEAGAMAAN: { label: "Keagamaan", emoji: "🕌", color: "bg-primary/10 text-primary border-primary/30" },
   LAINNYA: { label: "Lainnya", emoji: "✨", color: "bg-secondary text-secondary-foreground border-secondary" },
 };
 

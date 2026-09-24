@@ -22,7 +22,7 @@ export default function AdminProfilPage() {
   const [newPassword, setNewPassword] = useState("");
 
   const initials = user ? getUserInitials(user.name) : "AA";
-  const avatarBg = user ? getAvatarColor(user.name) : "#27348B";
+  const avatarBg = user ? getAvatarColor(user.name) : "#7c9082";
 
   const handleUpdateProfile = (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,7 +63,7 @@ export default function AdminProfilPage() {
             <div>
               <h2 className="font-bold text-lg leading-tight">{user?.name || "Admin Al-Azhar"}</h2>
               <p className="text-xs text-muted-foreground mt-0.5">{user?.email}</p>
-              <Badge className="bg-[#27348B] text-white mt-2 gap-1 text-[11px]">
+              <Badge className="bg-primary text-primary-foreground mt-2 gap-1 text-[11px]">
                 <Shield className="size-3" /> Administrator Utama
               </Badge>
             </div>
@@ -114,7 +114,7 @@ export default function AdminProfilPage() {
                 </div>
 
                 <div className="flex justify-end pt-2">
-                  <Button type="submit" size="sm" className="bg-[#27348B] hover:bg-[#1e276b] text-white gap-1.5">
+                  <Button type="submit" size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-1.5">
                     <Save className="size-3.5" /> Simpan Profil
                   </Button>
                 </div>

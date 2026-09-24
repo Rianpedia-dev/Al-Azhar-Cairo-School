@@ -144,7 +144,7 @@ export function AppSidebar({ role }: { role: UserRole }) {
   };
 
   const initials = user ? getUserInitials(user.name) : "AA";
-  const avatarBg = user ? getAvatarColor(user.name) : "#27348B";
+  const avatarBg = user ? getAvatarColor(user.name) : "#7c9082";
 
   const toggleExpand = (title: string) => {
     setExpandedItems((prev) =>
@@ -169,7 +169,7 @@ export function AppSidebar({ role }: { role: UserRole }) {
     <Sidebar collapsible="icon" className="border-r border-sidebar-border bg-sidebar">
       <SidebarHeader className="h-16 justify-center px-4 group-data-[collapsible=icon]:px-0 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:items-center border-b border-sidebar-border transition-all duration-200">
         <div className="flex items-center gap-3 group-data-[collapsible=icon]:gap-0 group-data-[collapsible=icon]:justify-center">
-          <div className="flex h-9 w-9 group-data-[collapsible=icon]:h-8 group-data-[collapsible=icon]:w-8 items-center justify-center rounded-xl group-data-[collapsible=icon]:rounded-lg bg-gradient-to-br from-[#27348B] to-[#1e276b] text-white shadow-md shrink-0 transition-all duration-200">
+          <div className="flex h-9 w-9 group-data-[collapsible=icon]:h-8 group-data-[collapsible=icon]:w-8 items-center justify-center rounded-xl group-data-[collapsible=icon]:rounded-lg bg-gradient-to-br from-primary to-primary/80 text-white shadow-md shrink-0 transition-all duration-200">
             <GraduationCap className="size-5 group-data-[collapsible=icon]:size-4 text-[#FDB913]" />
           </div>
           <div className="flex flex-col group-data-[collapsible=icon]:hidden">
@@ -344,7 +344,7 @@ export function AppSidebar({ role }: { role: UserRole }) {
                     }}
                     className="cursor-pointer"
                   >
-                    <UserIcon className="mr-2 h-4 w-4 text-[#27348B] dark:text-[#00AEEF]" />
+                    <UserIcon className="mr-2 h-4 w-4 text-primary" />
                     <span>Profil Saya</span>
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
@@ -358,7 +358,7 @@ export function AppSidebar({ role }: { role: UserRole }) {
                   onClick={() => handleSwitchRole("ADMIN")}
                   className="cursor-pointer text-xs"
                 >
-                  <Shield className="mr-2 h-4 w-4 text-[#27348B]" />
+                  <Shield className="mr-2 h-4 w-4 text-primary" />
                   <span>Masuk sebagai Admin</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem

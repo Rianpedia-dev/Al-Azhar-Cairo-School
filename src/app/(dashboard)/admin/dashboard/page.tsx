@@ -74,7 +74,7 @@ export default function AdminDashboardPage() {
       role: "ADMIN",
       action: "Menambahkan 5 akun peserta didik baru melalui modul CSV",
       time: "2 jam yang lalu",
-      icon: <UserPlus className="size-4 text-[#27348B]" />,
+      icon: <UserPlus className="size-4 text-primary" />,
     },
     {
       id: "act-5",
@@ -149,7 +149,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Charts Grid */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         <ChartWidget
           type="bar"
           title="Grafik Capaian Prestasi Siswa"
@@ -169,7 +169,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Bottom Grid: Recent Tasks & Prestasi */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Recent Tugas */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-3">

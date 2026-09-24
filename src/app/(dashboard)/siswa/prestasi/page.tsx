@@ -5,7 +5,7 @@ import { mockPrestasi } from "@/lib/mock-data";
 import { PrestasiBadge } from "@/components/prestasi/prestasi-badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Award, Trophy, Star, Sparkles, Calendar, CheckCircle2 } from "lucide-react";
+import { Star, Calendar, CheckCircle2 } from "lucide-react";
 
 export default function SiswaPrestasiPage() {
   const { user } = useAuth();
@@ -16,10 +16,7 @@ export default function SiswaPrestasiPage() {
     <div className="space-y-6">
       {/* Banner */}
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 p-6 text-white shadow-xl">
-        <div className="relative z-10 max-w-xl space-y-2">
-          <Badge className="bg-white/20 text-white border-0 gap-1 text-xs">
-            <Trophy className="size-3 text-amber-200" /> Lemari Penghargaan & Piagam
-          </Badge>
+        <div className="relative z-10 max-w-xl">
           <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
             Portofolio Prestasi Saya
           </h1>

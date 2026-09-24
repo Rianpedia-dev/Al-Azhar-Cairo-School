@@ -55,11 +55,11 @@ export default function LoginPage() {
   return (
     <div className="w-full max-w-md space-y-4">
       <Card className="shadow-2xl border-border/60 backdrop-blur-md bg-card/95 overflow-hidden">
-        {/* Top Decorative Al-Azhar Cairo Brand Bar */}
-        <div className="h-2.5 bg-gradient-to-r from-[#27348B] via-[#008C45] to-[#00AEEF]" />
+        {/* Top Decorative Brand Bar */}
+        <div className="h-2.5 bg-gradient-to-r from-primary via-accent to-secondary" />
         
         <CardHeader className="text-center space-y-2 pb-4 pt-6">
-          <div className="mx-auto size-16 rounded-2xl bg-gradient-to-br from-[#27348B] to-[#1e276b] flex items-center justify-center text-white shadow-xl shadow-[#27348B]/25">
+          <div className="mx-auto size-16 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-primary-foreground shadow-xl shadow-primary/25">
             <GraduationCap className="size-9 text-[#FDB913]" />
           </div>
           <div>
@@ -110,7 +110,7 @@ export default function LoginPage() {
 
             <Button
               type="submit"
-              className="w-full bg-[#27348B] hover:bg-[#1e276b] text-white font-semibold h-11 shadow-md shadow-[#27348B]/20 gap-2 text-sm mt-2"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold h-11 shadow-md shadow-primary/20 gap-2 text-sm mt-2"
               disabled={loading}
             >
               {loading ? "Memverifikasi..." : (
@@ -140,9 +140,9 @@ export default function LoginPage() {
                 variant="outline"
                 size="sm"
                 onClick={() => handleQuickLogin("ADMIN")}
-                className="h-auto py-2.5 flex flex-col gap-1 border-[#27348B]/30 hover:border-[#27348B] hover:bg-[#27348B]/5 transition-all"
+                className="h-auto py-2.5 flex flex-col gap-1 border-primary/30 hover:border-primary hover:bg-primary/5 transition-all"
               >
-                <Shield className="size-4 text-[#27348B]" />
+                <Shield className="size-4 text-primary" />
                 <span className="text-xs font-bold text-foreground">Admin</span>
                 <span className="text-[10px] text-muted-foreground">Kelola Data</span>
               </Button>

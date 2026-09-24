@@ -124,7 +124,7 @@ export default function AdminUsersPage() {
   const getRoleBadge = (r: UserRole) => {
     switch (r) {
       case "ADMIN":
-        return <Badge className="bg-[#27348B] text-white gap-1"><Shield className="size-3" /> Admin</Badge>;
+        return <Badge className="bg-primary text-primary-foreground gap-1"><Shield className="size-3" /> Admin</Badge>;
       case "GURU":
         return <Badge className="bg-[#008C45] text-white gap-1"><GraduationCap className="size-3" /> Guru</Badge>;
       case "SISWA":
@@ -288,7 +288,7 @@ export default function AdminUsersPage() {
                         type="button"
                         size="sm"
                         variant={role === r ? "default" : "outline"}
-                        className={role === r ? "bg-[#27348B] text-white" : ""}
+                        className={role === r ? "bg-primary text-primary-foreground" : ""}
                         onClick={() => setRole(r)}
                       >
                         {r}
@@ -328,7 +328,7 @@ export default function AdminUsersPage() {
                   key={r}
                   size="sm"
                   variant={roleFilter === r ? "default" : "ghost"}
-                  className={roleFilter === r ? "bg-[#27348B] text-white h-8 text-xs font-semibold" : "h-8 text-xs"}
+                  className={roleFilter === r ? "bg-primary text-primary-foreground h-8 text-xs font-semibold" : "h-8 text-xs"}
                   onClick={() => setRoleFilter(r)}
                 >
                   {r === "ALL" ? "Semua Peran" : r}

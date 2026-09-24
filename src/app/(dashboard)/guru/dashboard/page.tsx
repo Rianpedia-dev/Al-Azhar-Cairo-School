@@ -179,7 +179,7 @@ export default function GuruDashboardPage() {
                     className={buttonVariants({
                       variant: "ghost",
                       size: "sm",
-                      className: "text-[11px] h-7 w-full text-[#27348B] dark:text-[#00AEEF]",
+                      className: "text-[11px] h-7 w-full text-primary",
                     })}
                   >
                     Roster Siswa
@@ -192,7 +192,7 @@ export default function GuruDashboardPage() {
       </Card>
 
       {/* Charts Grid */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         <ChartWidget
           type="bar"
           title="Pengumpulan Tugas per Kelas"
@@ -212,7 +212,7 @@ export default function GuruDashboardPage() {
       </div>
 
       {/* Bottom Grid: Tugas Menunggu Koreksi & Kalender Timeline Deadline */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Tugas Menunggu Koreksi */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-3">

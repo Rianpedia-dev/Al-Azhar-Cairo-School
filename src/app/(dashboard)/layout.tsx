@@ -27,7 +27,7 @@ export default function DashboardLayout({
       <AppSidebar role={role} />
       <SidebarInset>
         <AppHeader />
-        <main className="flex-1 p-4 md:p-6 xl:p-8 page-enter">
+        <main className="flex-1 p-4 md:p-6 xl:p-8 page-enter w-full max-w-[1400px] mx-auto">
           {children}
         </main>
         <AppFooter />

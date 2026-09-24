@@ -37,10 +37,24 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --font-heading: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Source Serif 4", ui-serif, Georgia, serif;
+  --color-font-sans: var(--font-sans);
+  --color-font-serif: var(--font-serif);
+  --color-font-mono: var(--font-mono);
+  --color-radius: var(--radius);
+  --color-shadow-color: var(--shadow-color);
+  --color-shadow-opacity: var(--shadow-opacity);
+  --color-shadow-blur: var(--shadow-blur);
+  --color-shadow-spread: var(--shadow-spread);
+  --color-shadow-offset-x: var(--shadow-offset-x);
+  --color-shadow-offset-y: var(--shadow-offset-y);
+  --color-letter-spacing: var(--letter-spacing);
+  --color-spacing: var(--spacing);
+
+  --font-sans: var(--font-sans, "Inter", ui-sans-serif, system-ui, sans-serif);
+  --font-mono: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
+  --font-heading: var(--font-sans, "Inter", ui-sans-serif, system-ui, sans-serif);
+  --font-serif: var(--font-serif, "Signifier", Georgia, serif);
+
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -51,91 +65,92 @@
 }
 
 /* ============================================
-   🌞 LIGHT MODE — Al-Azhar Cairo Official
+   🌞 LIGHT MODE — theme.md Specification
    ============================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #1e293b;
+  --background: #f8f7f4;
+  --foreground: #1a1f2e;
   --card: #ffffff;
-  --card-foreground: #1e293b;
+  --card-foreground: #1a1f2e;
   --popover: #ffffff;
-  --popover-foreground: #1e293b;
-  --primary: #27348B; /* Al-Azhar Dark Blue */
+  --popover-foreground: #1a1f2e;
+  --primary: #7c9082;
   --primary-foreground: #ffffff;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #334155;
-  --muted: #f8fafc;
-  --muted-foreground: #64748b;
-  --accent: #00AEEF; /* Al-Azhar Cyan */
-  --accent-foreground: #ffffff;
-  --destructive: #E1251B; /* Al-Azhar Red */
+  --secondary: #ced4bf;
+  --secondary-foreground: #1a1f2e;
+  --muted: #e8e6e1;
+  --muted-foreground: #6b7280;
+  --accent: #bfc9bb;
+  --accent-foreground: #1a1f2e;
+  --destructive: #c73e3a;
   --destructive-foreground: #ffffff;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #27348B;
-
-  /* Warna-warni Logo Chart Colors */
-  --chart-1: #00AEEF; /* Cyan */
-  --chart-2: #E1251B; /* Red */
-  --chart-3: #FDB913; /* Yellow */
-  --chart-4: #008C45; /* Green */
-  --chart-5: #662D91; /* Purple */
-
-  --radius: 0.5rem;
-
-  /* Sidebar */
-  --sidebar: #ffffff;
-  --sidebar-foreground: #1e293b;
-  --sidebar-primary: #27348B;
+  --border: #e8e6e1;
+  --input: #ffffff;
+  --ring: #7c9082;
+  --chart-1: #00AEEF; 
+  --chart-2: #ff4b40; 
+  --chart-3: #FDB913; 
+  --chart-4: #00b85a; 
+  --chart-5: #4f0680ff; 
+  --sidebar: #fafaf8;
+  --sidebar-foreground: #1a1f2e;
+  --sidebar-primary: #7c9082;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f1f5f9;
-  --sidebar-accent-foreground: #27348B;
-  --sidebar-border: #e2e8f0;
-  --sidebar-ring: #27348B;
+  --sidebar-accent: #e8e6e1;
+  --sidebar-accent-foreground: #1a1f2e;
+  --sidebar-border: #e8e6e1;
+  --sidebar-ring: #7c9082;
+  --font-sans: Inter, ui-sans-serif, sans-serif, system-ui;
+  --font-serif: Signifier, Georgia, serif;
+  --font-mono: JetBrains Mono, Courier New, monospace;
+  --radius: 0.35rem;
+  --shadow-color: #1a1f2e;
+  --shadow-opacity: 0.04;
+  --shadow-blur: 2px;
+  --shadow-spread: 0px;
+  --shadow-offset-x: 0px;
+  --shadow-offset-y: 1px;
+  --letter-spacing: 0em;
+  --spacing: 0.23rem;
 }
 
 /* ============================================
-   🌙 DARK MODE — Al-Azhar Cairo (Hitam Pekat / True Black)
+   🌙 DARK MODE — theme.md Specification
    ============================================ */
 .dark {
-  --background: #000000;
-  --foreground: #f4f4f5;
-  --card: #09090b;
-  --card-foreground: #f4f4f5;
-  --popover: #09090b;
-  --popover-foreground: #f4f4f5;
-  --primary: #00AEEF; /* Cyan */
-  --primary-foreground: #ffffff;
-  --secondary: #18181b;
-  --secondary-foreground: #f4f4f5;
-  --muted: #121214;
-  --muted-foreground: #a1a1aa;
-  --accent: #FDB913; /* Al-Azhar Yellow as accent */
-  --accent-foreground: #000000;
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  --card: #121212;
+  --card-foreground: #f5f5f5;
+  --popover: #121212;
+  --popover-foreground: #f5f5f5;
+  --primary: #7c9082;
+  --primary-foreground: #000000;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #f5f5f5;
+  --muted: #1a1a1a;
+  --muted-foreground: #a0a0a0;
+  --accent: #36443a;
+  --accent-foreground: #f5f5f5;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #27272a;
-  --input: #27272a;
-  --ring: #00AEEF;
-
-  /* Chart dark mode balanced contrast */
-  --chart-1: #00AEEF; /* Cyan */
-  --chart-2: #ff4b40; /* Lighter Red */
-  --chart-3: #FDB913; /* Yellow */
-  --chart-4: #00b85a; /* Lighter Green */
-  --chart-5: #F37021; /* Orange */
-
-  --radius: 0.5rem;
-
-  /* Sidebar dark (Hitam Pekat) */
-  --sidebar: #000000;
-  --sidebar-foreground: #f4f4f5;
-  --sidebar-primary: #00AEEF;
+  --border: #2a2a2a;
+  --input: #121212;
+  --ring: #7c9082;
+  --chart-1: #00AEEF; 
+  --chart-2: #ff4b40; 
+  --chart-3: #FDB913; 
+  --chart-4: #00b85a; 
+  --chart-5: #4f0680ff; 
+  --sidebar: #0f0f0f;
+  --sidebar-foreground: #f5f5f5;
+  --sidebar-primary: #7c9082;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #141416;
-  --sidebar-accent-foreground: #f4f4f5;
-  --sidebar-border: #27272a;
-  --sidebar-ring: #00AEEF;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #f5f5f5;
+  --sidebar-border: #2a2a2a;
+  --sidebar-ring: #7c9082;
+  --shadow-color: #000000;
 }
 
 /* ============================================
@@ -150,6 +165,32 @@
   }
   html {
     @apply font-sans scroll-smooth;
+    font-size: 15px;
+  }
+  @media (min-width: 640px) {
+    html {
+      font-size: 15.5px;
+    }
+  }
+  @media (min-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+  }
+  @media (min-width: 1024px) {
+    html {
+      font-size: 16.5px;
+    }
+  }
+  @media (min-width: 1280px) {
+    html {
+      font-size: 17px;
+    }
+  }
+  @media (min-width: 1536px) {
+    html {
+      font-size: 17.5px;
+    }
   }
 }
 

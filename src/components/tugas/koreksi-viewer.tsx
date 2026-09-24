@@ -116,7 +116,7 @@ export function KoreksiViewer({
     ctx.strokeRect(20, 20, width - 40, height - 40);
 
     // School Header Box
-    ctx.fillStyle = "#27348B"; // Al-Azhar Navy
+    ctx.fillStyle = "#7c9082"; // Theme Primary
     ctx.fillRect(20, 20, width - 40, 95);
 
     // Header Text
@@ -433,8 +433,8 @@ export function KoreksiViewer({
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => handleAddStamp("⭐ Bagus Sekali", "#27348B", "rgba(39, 52, 139, 0.12)")}
-                className="text-xs border-blue-300 text-blue-700 hover:bg-blue-50"
+                onClick={() => handleAddStamp("⭐ Bagus Sekali", "#7c9082", "rgba(124, 144, 130, 0.15)")}
+                className="text-xs border-primary/40 text-primary hover:bg-primary/10"
               >
                 ⭐ Bagus
               </Button>
@@ -489,7 +489,7 @@ export function KoreksiViewer({
         <Card className="overflow-hidden border-border/80 shadow-md">
           <CardHeader className="py-2.5 px-4 bg-muted/30 border-b flex flex-row items-center justify-between">
             <div className="flex items-center gap-2">
-              <FileText className="size-4 text-[#27348B]" />
+              <FileText className="size-4 text-primary" />
               <CardTitle className="text-sm font-semibold">{fileName}</CardTitle>
               <span className="text-xs text-muted-foreground">• {taskTitle}</span>
             </div>
@@ -544,7 +544,7 @@ export function KoreksiViewer({
                 value={nilai}
                 onChange={(e) => setNilai(e.target.value)}
                 placeholder="0-100"
-                className="text-3xl font-extrabold text-center h-16 text-[#27348B] dark:text-[#00AEEF] border-2 focus-visible:ring-[#27348B]"
+                className="text-3xl font-extrabold text-center h-16 text-primary border-2 focus-visible:ring-primary"
               />
             </div>
 

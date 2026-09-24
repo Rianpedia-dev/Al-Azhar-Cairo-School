@@ -149,7 +149,7 @@ export function ChartWidget({
                 stroke="#00AEEF"
                 strokeWidth={2}
                 dot={{ fill: "#00AEEF", r: 4 }}
-                activeDot={{ r: 6, fill: "#27348B" }}
+                activeDot={{ r: 6, fill: "var(--primary)" }}
               />
             </LineChart>
           </ResponsiveContainer>

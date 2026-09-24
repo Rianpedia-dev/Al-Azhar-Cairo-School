@@ -3,6 +3,14 @@
 import { mockMataPelajaran } from "@/lib/mock-data";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { BookOpen, Clock, User, Calendar } from "lucide-react";
 
 export default function SiswaMataPelajaranPage() {
@@ -24,58 +32,106 @@ export default function SiswaMataPelajaranPage() {
         </h1>
       </div>
 
-      {/* Schedule Table / Card */}
-      <Card>
+      {/* Schedule Table */}
+      <Card className="border-border/70 shadow-sm">
         <CardHeader>
           <CardTitle className="text-base font-bold flex items-center gap-2">
-            <Calendar className="size-4 text-emerald-600" /> Jadwal Pelajaran Mingguan
+            <Calendar className="size-4 text-primary" /> Jadwal Pelajaran Mingguan
           </CardTitle>
           <CardDescription className="text-xs">Kelas 1A — Semester Ganjil 2026/2027</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-            {schedules.map((sc, i) => (
-              <div key={i} className="p-3 rounded-xl border border-border/70 bg-card hover:bg-muted/30 transition-colors space-y-1.5">
-                <div className="flex items-center justify-between">
-                  <Badge variant="outline" className="text-[10px] font-bold text-emerald-600 border-emerald-500/40">
-                    {sc.day}
-                  </Badge>
-                  <span className="text-[11px] text-muted-foreground flex items-center gap-1">
-                    <Clock className="size-3" /> {sc.time}
-                  </span>
-                </div>
-                <p className="font-bold text-sm text-foreground">{sc.subject}</p>
-                <p className="text-xs text-muted-foreground flex items-center gap-1">
-                  <User className="size-3 text-teal-600" /> {sc.teacher}
-                </p>
-              </div>
-            ))}
+          <div className="rounded-lg border border-border overflow-x-auto">
+            <Table>
+              <TableHeader className="bg-muted/40">
+                <TableRow>
+                  <TableHead className="w-[120px] font-bold text-xs uppercase">Hari</TableHead>
+                  <TableHead className="w-[160px] font-bold text-xs uppercase">Waktu</TableHead>
+                  <TableHead className="font-bold text-xs uppercase">Mata Pelajaran</TableHead>
+                  <TableHead className="font-bold text-xs uppercase">Pendidik / Pengampu</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {schedules.map((sc, i) => (
+                  <TableRow key={i} className="hover:bg-muted/30">
+                    <TableCell className="font-semibold text-xs">
+                      <Badge variant="outline" className="text-xs font-semibold border-primary/40 text-primary">
+                        {sc.day}
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="text-xs font-mono text-muted-foreground whitespace-nowrap">
+                      <span className="flex items-center gap-1.5">
+                        <Clock className="size-3.5 text-muted-foreground shrink-0" />
+                        {sc.time}
+                      </span>
+                    </TableCell>
+                    <TableCell className="font-semibold text-xs text-foreground">
+                      {sc.subject}
+                    </TableCell>
+                    <TableCell className="text-xs text-muted-foreground">
+                      <span className="flex items-center gap-1.5">
+                        <User className="size-3.5 text-primary shrink-0" />
+                        {sc.teacher}
+                      </span>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </div>
         </CardContent>
       </Card>
 
-      {/* Subject cards */}
-      <div>
-        <h2 className="text-lg font-bold text-foreground mb-3">Daftar Kurikulum Pelajaran</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {mapelSiswa.map((m) => (
-            <Card key={m.id} className="hover:shadow-md transition-shadow">
-              <CardHeader className="pb-3">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs font-bold text-emerald-600">{m.kode}</span>
-                  <Badge variant="secondary" className="text-[10px]">Kurikulum SD</Badge>
-                </div>
-                <CardTitle className="text-base font-bold mt-1 flex items-center gap-2">
-                  <BookOpen className="size-4 text-emerald-600" /> {m.nama}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-xs text-muted-foreground pt-0">
-                {m.deskripsi || "Mata pelajaran wajib berstandar Al-Azhar Cairo."}
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
+      {/* Curriculum Subject Table */}
+      <Card className="border-border/70 shadow-sm">
+        <CardHeader>
+          <CardTitle className="text-base font-bold flex items-center gap-2">
+            <BookOpen className="size-4 text-primary" /> Daftar Kurikulum Pelajaran
+          </CardTitle>
+          <CardDescription className="text-xs">
+            Daftar mata pelajaran wajib dan kurikulum pembelajaran Kelas 1A SD Al-Azhar Cairo
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="rounded-lg border border-border overflow-x-auto">
+            <Table>
+              <TableHeader className="bg-muted/40">
+                <TableRow>
+                  <TableHead className="w-[100px] font-bold text-xs uppercase">Kode</TableHead>
+                  <TableHead className="w-[240px] font-bold text-xs uppercase">Mata Pelajaran</TableHead>
+                  <TableHead className="w-[140px] font-bold text-xs uppercase">Tingkat</TableHead>
+                  <TableHead className="font-bold text-xs uppercase">Deskripsi & Keterangan</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {mapelSiswa.map((m) => (
+                  <TableRow key={m.id} className="hover:bg-muted/30">
+                    <TableCell className="font-semibold text-xs">
+                      <Badge variant="outline" className="font-mono text-xs font-bold border-primary/30 text-primary">
+                        {m.kode}
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="font-semibold text-xs text-foreground">
+                      <div className="flex items-center gap-2">
+                        <BookOpen className="size-3.5 text-primary shrink-0" />
+                        <span>{m.nama}</span>
+                      </div>
+                    </TableCell>
+                    <TableCell className="text-xs">
+                      <Badge variant="secondary" className="text-[11px] font-medium">
+                        Kurikulum SD
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="text-xs text-muted-foreground">
+                      {m.deskripsi || "Mata pelajaran wajib berstandar Al-Azhar Cairo."}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

@@ -317,7 +317,7 @@ export function getUserInitials(name: string): string {
 }
 
 export function getAvatarColor(name: string): string {
-  const colors = ["#00AEEF", "#E1251B", "#FDB913", "#008C45", "#662D91", "#27348B"];
+  const colors = ["#00AEEF", "#E1251B", "#FDB913", "#008C45", "#662D91", "#7c9082"];
   const index = name.charCodeAt(0) % colors.length;
   return colors[index];
 }

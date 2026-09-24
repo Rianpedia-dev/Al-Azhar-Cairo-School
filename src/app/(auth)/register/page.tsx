@@ -9,8 +9,8 @@ export default function RegisterPage() {
   return (
     <div className="w-full max-w-md space-y-4">
       <Card className="shadow-2xl border-border/60 backdrop-blur-md bg-card/95 overflow-hidden">
-        {/* Top Decorative Al-Azhar Cairo Brand Bar */}
-        <div className="h-2.5 bg-gradient-to-r from-[#27348B] via-[#008C45] to-[#00AEEF]" />
+        {/* Top Decorative Brand Bar */}
+        <div className="h-2.5 bg-gradient-to-r from-primary via-accent to-secondary" />
 
         <CardHeader className="text-center pt-8 pb-4">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-500 mb-3 border border-amber-500/20">
@@ -36,7 +36,7 @@ export default function RegisterPage() {
 
         <CardFooter className="flex flex-col gap-2 pt-2 pb-6 px-6">
           <Link href="/login" className="w-full">
-            <Button className="w-full bg-[#27348B] hover:bg-[#1e276b] text-white">
+            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
               <ArrowLeft className="size-4 mr-2" /> Kembali ke Halaman Masuk
             </Button>
           </Link>

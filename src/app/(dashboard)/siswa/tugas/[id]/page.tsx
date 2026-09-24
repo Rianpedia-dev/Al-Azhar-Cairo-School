@@ -71,7 +71,7 @@ export default function DetailTugasSiswaPage({ params }: PageProps) {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <Badge className="bg-[#27348B] text-white font-semibold">{tugas.jenisTugas}</Badge>
+                <Badge className="bg-primary text-primary-foreground font-semibold">{tugas.jenisTugas}</Badge>
                 <Badge variant={tugas.status === "PUBLISHED" ? "default" : "secondary"}>
                   {tugas.status === "PUBLISHED" ? "Aktif" : tugas.status}
                 </Badge>
@@ -125,12 +125,12 @@ export default function DetailTugasSiswaPage({ params }: PageProps) {
                   <DialogContent className="max-w-2xl">
                     <DialogHeader>
                       <DialogTitle className="flex items-center gap-2 text-base">
-                        <FileText className="size-4 text-[#27348B]" /> Pratinjau Lembar Soal: {file.nama}
+                        <FileText className="size-4 text-primary" /> Pratinjau Lembar Soal: {file.nama}
                       </DialogTitle>
                     </DialogHeader>
                     <div className="border rounded-xl p-6 bg-slate-50 dark:bg-zinc-950 text-sm space-y-4 max-h-[500px] overflow-y-auto">
                       <div className="border-b pb-3 text-center">
-                        <h3 className="font-bold text-base text-[#27348B] dark:text-[#00AEEF]">AL-AZHAR CAIRO ISLAMIC SCHOOL</h3>
+                        <h3 className="font-bold text-base text-primary">AL-AZHAR CAIRO ISLAMIC SCHOOL</h3>
                         <p className="text-xs text-muted-foreground">{tugas.judul} • Kelas 7A</p>
                       </div>
                       <div className="space-y-3">
@@ -153,7 +153,7 @@ export default function DetailTugasSiswaPage({ params }: PageProps) {
 
                 <Button
                   size="sm"
-                  className="bg-[#27348B] hover:bg-[#1f2a6e] text-white text-xs gap-1.5"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground text-xs gap-1.5"
                   onClick={() => handleDownloadSoal(file.nama)}
                 >
                   <Download className="size-3.5" /> Unduh
